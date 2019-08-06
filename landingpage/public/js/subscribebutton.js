@@ -9,9 +9,27 @@ var subscribe_button = document.querySelector(".subscribe_button_sb");
   var subscribing = document.querySelector(".subscribing_sb");
   var thanks = document.querySelector(".thanks_sb");
   var login = document.querySelector(".login_sb");
-
   subscribing.classList.add("subscribing_active_sb");
   subscribe_button.classList.add("subscribe_button_active_sb");
+
+  console.log()
+  const email = subscribing.value
+  //SAVE INFO IN DATA BASE
+    const db = firebase.firestore();
+    ref = db.collection("alldata").document();
+    myId = ref.getId();
+    console.log(myId)
+
+    db.collection("alldata").doc(myId).set({
+        name: " ",
+        email: email,
+        subject: " ",
+        date_of_post: " ",
+        message: " "
+    })
+
+
+
   setTimeout(function(){
     login.classList.add("login_active_sb");
   }, 1200);
