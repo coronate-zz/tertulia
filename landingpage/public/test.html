@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<title>CodePen - Subscribe Form Animation</title>
+<link rel="stylesheet" href="css/subscribebutton.css">
+
+<script>
+  window.console = window.console || function(t) {};
+</script>
+<script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+</head>
+<body translate="no">
+<div class="container_sb">
+<div class="login_bar_sb">
+<span class="login_sb">super-email@gmail.com</span>
+<span class="subscribe_button_sb" onclick="subscribeOnClick()">subscribe</span>
+<span class="subscribing_sb"></span>
+<span class="thanks_sb"> Thank you. You have been subscribed</span>
+</div>
+</div>
+<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
+<script id="rendered-js">
+
+      var subscribe_button = document.querySelector(".subscribe_button_sb");
+
+subscribe_button.addEventListener('click', function () {
+  var subscribing = document.querySelector(".subscribing_sb");
+  var thanks = document.querySelector(".thanks_sb");
+  var login = document.querySelector(".login_sb");
+
+  subscribing.classList.add("subscribing_active_sb");
+  subscribe_button.classList.add("subscribe_button_active_sb");
+  setTimeout(function () {
+    login.classList.add("login_active_sb");
+  }, 1200);
+  setTimeout(function () {
+    thanks.classList.add("thanks_active_sb");
+  }, 1400);
+
+  setTimeout(function () {
+    thanks.classList.remove("thanks_active_sb");
+    login.classList.remove("login_active_sb");
+    subscribing.classList.remove("subscribing_active_sb");
+    subscribe_button.classList.remove("subscribe_button_active_sb");
+  }, 4000);
+});
+      //# sourceURL=pen.js
+    </script>
+</body>
+</html>
